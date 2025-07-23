@@ -11,8 +11,14 @@ export const handler = async (e) => {
     case "popular":
       url = `${base}/${type}/popular?api_key=${apiKey}`;
       break;
-    case "search":
+    case "search_multi":
       url = `${base}/search/multi?api_key=${apiKey}&query=${encodeURIComponent(query)}`;
+      break;
+    case "search_movie":
+      url = `${base}/search/movie?api_key=${apiKey}&query=${encodeURIComponent(query)}`;
+      break;
+    case "search_tv":
+      url = `${base}/search/tv?api_key=${apiKey}&query=${encodeURIComponent(query)}`;
       break;
     case "details":
       url = `${base}/${type}/${id}?api_key=${apiKey}`;

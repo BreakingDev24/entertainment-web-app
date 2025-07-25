@@ -1,1 +1,79 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+@theme static {
+  --color-white: var(--color-white);
+  --color-black: var(--color-black);
+  --color-red: var(--color-red-500);
+  --color-darkBlue: var(--color-blue-950);
+  --color-mediumBlue: var(--color-blue-900);
+  --color-lightBlue: var(--color-blue-500);
+
+  /* text */
+  --font-primary: "Outfit", sans-serif;
+
+  --text-preset1: 32px;
+  --text-preset1--line-height: 1.25;
+  --text-preset1--letter-spacing: -0.5px;
+  --text-preset1--font-weight: var(--font-weight-light);
+
+  --text-preset1-mobile: 20px;
+  --text-preset1-mobile--line-height: 1.25;
+  --text-preset1-mobile--letter-spacing: -0.3px;
+  --text-preset1-mobile--font-weight: var(--font-weight-light);
+
+  /* Text Preset 2 */
+  --text-preset2: 24px;
+  --text-preset2--line-height: 1.25;
+  --text-preset2--letter-spacing: 0px;
+  --text-preset2--font-weight: var(--font-weight-medium);
+
+  --text-preset2-light: 24px;
+  --text-preset2-light--line-height: 1.25;
+  --text-preset2-light--letter-spacing: 0px;
+  --text-preset2-light--font-weight: var(--font-weight-light);
+
+  --text-preset2-mobile: 16px;
+  --text-preset2-mobile--line-height: 1.25;
+  --text-preset2-mobile--letter-spacing: 0px;
+  --text-preset2-mobile--font-weight: var(--font-weight-light);
+
+  /* Text Preset 3 */
+  --text-preset3: 18px;
+  --text-preset3--line-height: 1.25;
+  --text-preset3--letter-spacing: 0px;
+  --text-preset3--font-weight: var(--font-weight-medium);
+
+  --text-preset3-mobile: 15px;
+  --text-preset3-mobile--line-height: 1.25;
+  --text-preset3-mobile--letter-spacing: 0px;
+  --text-preset3-mobile--font-weight: var(--font-weight-medium);
+
+  /* Text Preset 4 */
+  --text-preset4: 15px;
+  --text-preset4--line-height: 1.25;
+  --text-preset4--letter-spacing: 0px;
+  --text-preset4--font-weight: var(--font-weight-light);
+
+  --text-preset4-mobile: 14px;
+  --text-preset4-mobile--line-height: 1.25;
+  --text-preset4-mobile--letter-spacing: 0px;
+  --text-preset4-mobile--font-weight: var(--font-weight-medium);
+
+  /* Text Preset 5 */
+  --text-preset5: 13px;
+  --text-preset5--line-height: 1.25;
+  --text-preset5--letter-spacing: 0px;
+  --text-preset5--font-weight: var(--font-weight-light);
+
+  --text-preset5-mobile: 12px;
+  --text-preset5-mobile--line-height: 1.25;
+  --text-preset5-mobile--letter-spacing: 0px;
+  --text-preset5-mobile--font-weight: var(--font-weight-light);
+
+  /* Text Preset 6 */
+  --text-preset6-mobile: 11px;
+  --text-preset6-mobile--line-height: 1.25;
+  --text-preset6-mobile--letter-spacing: 0px;
+  --text-preset6-mobile--font-weight: var(--font-weight-light);
+}

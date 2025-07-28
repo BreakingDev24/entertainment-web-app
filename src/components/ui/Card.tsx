@@ -27,31 +27,26 @@ interface CardProps {
 }
 
 export default function Card({ item, imgUrl, className }: CardProps) {
+  const isMovie = item.media_type === "movie";
+  const isTv = item.media_type === "tv";
   const year =
     item.media_type === "movie"
       ? item.release_date.split("-")[0]
       : item.first_air_date.split("-")[0];
-  const mediaTitle = item.media_type === "movie" ? item.title : item.name;
+  const mediaTitle = isMovie ? item.title : item.name;
+
   return (
-    <div className={cn("grid w-full justify-items-center", className)}>
+    <div className={cn("grid w-full justify-items-center gap-1.5", className)}>
       <img
         src={`${imgUrl}w342${item.poster_path}`}
         alt={`${mediaTitle} poster`}
         className="w-full"
       />
-      <div className="flex items-center">
+      <div className="flex w-full items-center justify-between">
         <span>{year}</span>
-        <span className="flex items-center">
-          {item.media_type === "tv" && (
-            <>
-              <IconTypeTV /> TV series
-            </>
-          )}
-          {item.media_type === "movie" && (
-            <>
-              <IconTypeMovie /> Movie
-            </>
-          )}
+        <span className="ml-auto flex items-center gap-1.5">
+          {isMovie ? <IconTypeMovie /> : <IconTypeTV />}
+          {isMovie ? "movie" : "tv"}
         </span>
         <span></span>
       </div>

@@ -2,15 +2,23 @@ import IconTypeMovie from "../../assets/icon-category-movie.svg?react";
 import IconTypeTV from "../../assets/icon-category-tv.svg?react";
 import cn from "../../utils/cn";
 
-export interface MediaItem {
+export type MovieItem = {
   id: number;
-  title?: string;
-  name?: string;
-  release_date?: string;
-  first_air_date?: string;
+  media_type: "movie";
+  title: string;
+  release_date: string;
   poster_path: string;
-  media_type: "movie" | "tv";
-}
+};
+
+export type TVItem = {
+  id: number;
+  media_type: "tv";
+  name: string;
+  first_air_date: string;
+  poster_path: string;
+};
+
+export type MediaItem = MovieItem | TVItem;
 
 interface CardProps {
   item: MediaItem;
@@ -19,13 +27,16 @@ interface CardProps {
 }
 
 export default function Card({ item, imgUrl, className }: CardProps) {
-  const year = (item.release_date || item.first_air_date)?.split("-")[0];
-  const mediaTitle = item.title || item.name;
+  const year =
+    item.media_type === "movie"
+      ? item.release_date.split("-")[0]
+      : item.first_air_date.split("-")[0];
+  const mediaTitle = item.media_type === "movie" ? item.title : item.name;
   return (
     <div className={cn("grid w-full justify-items-center", className)}>
       <img
         src={`${imgUrl}w342${item.poster_path}`}
-        alt={`${item.title || item.name} poster`}
+        alt={`${mediaTitle} poster`}
         className="w-full"
       />
       <div className="flex items-center">

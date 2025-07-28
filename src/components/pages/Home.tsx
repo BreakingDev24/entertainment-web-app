@@ -10,8 +10,6 @@ export default function Home() {
     { skip: !query },
   );
 
-  const imgUrl = "https://image.tmdb.org/t/p/";
-
   return (
     <div className="p-4 text-white">
       <p>Results for: {query?.toUpperCase()}</p>
@@ -21,7 +19,7 @@ export default function Home() {
         <ul className="grid grid-cols-2 justify-center justify-items-center gap-4 md:grid-cols-3">
           {data?.map((item: MediaItem) => (
             <li key={item.id} className="grid w-full justify-items-center">
-              <Card item={item} imgUrl={imgUrl} />
+              <Card item={item} />
             </li>
           ))}
         </ul>

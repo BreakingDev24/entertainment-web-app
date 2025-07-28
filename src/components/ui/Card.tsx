@@ -22,11 +22,12 @@ export type MediaItem = MovieItem | TVItem;
 
 interface CardProps {
   item: MediaItem;
-  imgUrl: string;
   className?: string;
 }
 
-export default function Card({ item, imgUrl, className }: CardProps) {
+export default function Card({ item, className }: CardProps) {
+  const imgUrl = "https://image.tmdb.org/t/p/";
+
   const isMovie = item.media_type === "movie";
   const isTv = item.media_type === "tv";
   const year =

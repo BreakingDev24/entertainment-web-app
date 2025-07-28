@@ -1,7 +1,5 @@
 import { useSearchParams } from "react-router-dom";
 import { useSearchByTypeQuery } from "../../features/tmdb/tmdbApi";
-import IconTypeMovie from "../../assets/icon-category-movie.svg?react";
-import IconTypeTV from "../../assets/icon-category-tv.svg?react";
 import Card, { type MediaItem } from "../ui/Card";
 
 export default function Home() {

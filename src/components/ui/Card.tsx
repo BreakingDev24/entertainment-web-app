@@ -35,6 +35,8 @@ export default function Card({ item, className }: CardProps) {
       ? item.release_date.split("-")[0]
       : item.first_air_date.split("-")[0];
   const mediaTitle = isMovie ? item.title : item.name;
+  const mediaTypeIcon = isMovie ? <IconTypeMovie /> : <IconTypeTV />;
+  const mediaTypeLabel = isMovie ? "movie" : "tv";
 
   return (
     <div className={cn("grid w-full justify-items-center gap-1.5", className)}>
@@ -46,8 +48,8 @@ export default function Card({ item, className }: CardProps) {
       <div className="flex w-full items-center justify-between">
         <span>{year}</span>
         <span className="ml-auto flex items-center gap-1.5">
-          {isMovie ? <IconTypeMovie /> : <IconTypeTV />}
-          {isMovie ? "movie" : "tv"}
+          {mediaTypeIcon}
+          {mediaTypeLabel}
         </span>
         <span></span>
       </div>

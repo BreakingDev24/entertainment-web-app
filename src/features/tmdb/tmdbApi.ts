@@ -12,6 +12,10 @@ export const tmdbApi = createApi({
       query: ({ type }) => `tmdb?endpoint=popular&type=${type}`,
     }),
     /*  */
+    getTrending: builder.query<any, void>({
+      query: () => `tmdb?endpoint=trending`,
+    }),
+    /*  */
     searchByType: builder.query<any, { type: SearchType; query: string }>({
       query: ({ type, query }) => {
         let endpoint = "";
@@ -41,4 +45,5 @@ export const tmdbApi = createApi({
   }),
 });
 
-export const { useGetPopularQuery, useSearchByTypeQuery } = tmdbApi;
+export const { useGetPopularQuery, useGetTrendingQuery, useSearchByTypeQuery } =
+  tmdbApi;

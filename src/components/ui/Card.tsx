@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import IconTypeMovie from "../../assets/icon-category-movie.svg?react";
 import IconTypeTV from "../../assets/icon-category-tv.svg?react";
 import cn from "../../utils/cn";
@@ -26,34 +27,49 @@ interface CardProps {
 }
 
 export default function Card({ item, className }: CardProps) {
+  const location = useLocation();
   const imgUrl = "https://image.tmdb.org/t/p/";
-
+  const mediaType =
+    item.media_type ||
+    (location.pathname.includes("movies")
+      ? "movie"
+      : location.pathname.includes("tv")
+        ? "tv"
+        : "unknown");
   const isMovie = item.media_type === "movie";
   const isTv = item.media_type === "tv";
   const year =
-    item.media_type === "movie"
-      ? item.release_date.split("-")[0]
-      : item.first_air_date.split("-")[0];
-  const mediaTitle = isMovie ? item.title : item.name;
-  const mediaTypeIcon = isMovie ? <IconTypeMovie /> : <IconTypeTV />;
-  const mediaTypeLabel = isMovie ? "movie" : "tv";
+    "release_date" in item
+      ? (item.release_date?.split("-")[0] ?? "N/A")
+      : "first_air_date" in item
+        ? (item.first_air_date?.split("-")[0] ?? "N/A")
+        : "N/A";
+  const mediaTitle =
+    "title" in item ? item.title : "name" in item ? item.name : "Unkonwn";
+  const mediaTypeIcon =
+    mediaType === "movie" ? <IconTypeMovie /> : <IconTypeTV />;
 
   return (
-    <div className={cn("grid w-full justify-items-center gap-1.5", className)}>
+    <div
+      className={cn(
+        "grid w-full justify-items-center gap-1.5 text-white",
+        className,
+      )}
+    >
       <img
         src={`${imgUrl}w342${item.poster_path}`}
         alt={`${mediaTitle} poster`}
         className="w-full"
       />
-      <div className="flex w-full items-center justify-between">
+      <div className="text-preset6-mobile flex w-full items-center justify-between">
         <span>{year}</span>
         <span className="ml-auto flex items-center gap-1.5">
           {mediaTypeIcon}
-          {mediaTypeLabel}
+          {mediaType}
         </span>
         <span></span>
       </div>
-      <p>{mediaTitle}</p>
+      <p className="text-preset4-mobile">{mediaTitle}</p>
     </div>
   );
 }

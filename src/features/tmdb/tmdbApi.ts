@@ -5,7 +5,7 @@ type SearchType = MediaType | "multi";
 
 export const tmdbApi = createApi({
   reducerPath: "tmdbApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "./.netlify/functions/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "/.netlify/functions/" }),
   endpoints: (builder) => ({
     /*  */
     getPopular: builder.query<any, { type: MediaType }>({

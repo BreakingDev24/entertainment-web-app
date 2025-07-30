@@ -36,8 +36,7 @@ export default function Card({ item, className }: CardProps) {
       : location.pathname.includes("tv")
         ? "tv"
         : "unknown");
-  const isMovie = item.media_type === "movie";
-  const isTv = item.media_type === "tv";
+
   const year =
     "release_date" in item
       ? (item.release_date?.split("-")[0] ?? "N/A")

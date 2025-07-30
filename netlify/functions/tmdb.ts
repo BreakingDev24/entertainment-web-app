@@ -11,6 +11,9 @@ export const handler = async (e) => {
     case "popular":
       url = `${base}/${type}/popular?api_key=${apiKey}`;
       break;
+    case "trending":
+      url = `${base}/trending/all/week?api_key=${apiKey}`;
+      break;
     case "search_multi":
       url = `${base}/search/multi?api_key=${apiKey}&query=${encodeURIComponent(query)}`;
       break;

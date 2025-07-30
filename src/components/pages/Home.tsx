@@ -1,28 +1,39 @@
 import { useSearchParams } from "react-router-dom";
-import { useSearchByTypeQuery } from "../../features/tmdb/tmdbApi";
-import Card, { type MediaItem } from "../ui/Card";
+import {
+  useGetTrendingQuery,
+  useSearchByTypeQuery,
+} from "../../features/tmdb/tmdbApi";
+import List from "../common/List";
 
 export default function Home() {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query");
-  const { data, isFetching } = useSearchByTypeQuery(
+  const { data: trendingData, isFetching: isFetchingTrending } =
+    useGetTrendingQuery();
+
+  const { data: queryData, isFetching: isFetchingQuery } = useSearchByTypeQuery(
     { type: "multi", query: query ?? "" },
     { skip: !query },
   );
 
   return (
     <div className="p-4 text-white">
-      <p>Results for: {query?.toUpperCase()}</p>
-      {isFetching ? (
-        <p>Loading</p>
-      ) : (
-        <ul className="grid grid-cols-2 justify-center justify-items-center gap-4 md:grid-cols-3">
-          {data?.map((item: MediaItem) => (
-            <li key={item.id} className="grid w-full justify-items-center">
-              <Card item={item} />
-            </li>
-          ))}
-        </ul>
+      {query && (
+        <div>
+          <h2>Results for: {query?.toUpperCase()}</h2>
+          {isFetchingQuery ? <p>Loading</p> : <List data={queryData} />}
+        </div>
+      )}
+
+      {!query && (
+        <div>
+          <h2>Trending</h2>
+          {isFetchingTrending ? (
+            <p>Loading</p>
+          ) : (
+            <List data={trendingData.results} />
+          )}
+        </div>
       )}
     </div>
   );

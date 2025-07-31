@@ -3,7 +3,6 @@ import { useSearchByTypeQuery } from "../../features/tmdb/tmdbApi";
 import List from "../common/List";
 
 export default function ResultPage() {
-  console.log("ResultPage rendered");
   const { section } = useParams();
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query");
@@ -16,8 +15,6 @@ export default function ResultPage() {
     },
     { skip: !query },
   );
-  console.log(query, type);
-  console.log(data);
 
   return (
     <div className="text-white">

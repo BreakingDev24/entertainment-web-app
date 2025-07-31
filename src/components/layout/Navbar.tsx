@@ -14,7 +14,7 @@ export default function Navbar({ className }: NavProps) {
   return (
     <div
       className={cn(
-        "bg-darkBlue flex items-center justify-between p-4",
+        "bg-mediumBlue flex items-center justify-between p-4",
         className,
       )}
     >

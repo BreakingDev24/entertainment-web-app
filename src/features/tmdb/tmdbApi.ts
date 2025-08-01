@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import type { MediaItem } from "../../components/ui/Card";
 
 type MediaType = "movie" | "tv";
 type SearchType = MediaType | "multi";
@@ -10,6 +11,12 @@ export const tmdbApi = createApi({
     /*  */
     getPopular: builder.query<any, { type: MediaType }>({
       query: ({ type }) => `tmdb?endpoint=popular&type=${type}`,
+      transformResponse: (response: any, _, arg): MediaItem[] => {
+        return response.results.map((item: any) => ({
+          ...item,
+          media_type: arg.type,
+        }));
+      },
     }),
     /*  */
     getTrending: builder.query<any, void>({
@@ -39,7 +46,10 @@ export const tmdbApi = createApi({
               item.media_type === "movie" || item.media_type === "tv",
           );
         }
-        return response.results;
+        return response.results.map((item: any) => ({
+          ...item,
+          media_type: arg.type,
+        }));
       },
     }),
   }),

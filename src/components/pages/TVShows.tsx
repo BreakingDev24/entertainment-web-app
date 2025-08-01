@@ -6,7 +6,7 @@ export default function TVShows() {
   return (
     <div>
       <h2>Popular TV Shows</h2>
-      {isFetching ? <p>Loading</p> : <List data={data?.results} />}
+      {isFetching ? <p>Loading</p> : <List data={data} />}
     </div>
   );
 }

@@ -34,13 +34,7 @@ export default function Card({ item, className }: CardProps) {
   const location = useLocation();
   const dispatch = useAppDispatch();
   const imgUrl = "https://image.tmdb.org/t/p/";
-  const mediaType =
-    item.media_type ||
-    (location.pathname.includes("movies")
-      ? "movie"
-      : location.pathname.includes("tv")
-        ? "tv"
-        : "unknown");
+  const mediaType = item.media_type;
 
   const year =
     "release_date" in item
@@ -61,7 +55,7 @@ export default function Card({ item, className }: CardProps) {
       dispatch(removeBookmark({ id: item.id, media_type: item.media_type }));
     else dispatch(addBookmark(item));
     console.log("Bookmarks attuali:", bookmarks);
-    console.log(isBookmarked);
+    console.log(mediaType);
   };
   return (
     <div

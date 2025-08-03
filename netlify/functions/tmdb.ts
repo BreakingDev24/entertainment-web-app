@@ -8,6 +8,9 @@ export const handler = async (e) => {
   let url = "";
 
   switch (endpoint) {
+    case "now_playing":
+      url = `${base}/movie/now_playing?api_key=${apiKey}`;
+      break;
     case "popular":
       url = `${base}/${type}/popular?api_key=${apiKey}`;
       break;

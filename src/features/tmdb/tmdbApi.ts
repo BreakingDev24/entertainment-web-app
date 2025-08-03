@@ -8,6 +8,15 @@ export const tmdbApi = createApi({
   reducerPath: "tmdbApi",
   baseQuery: fetchBaseQuery({ baseUrl: "/.netlify/functions/" }),
   endpoints: (builder) => ({
+    getNowPlaying: builder.query<any, void>({
+      query: () => `tmdb?endpoint=now_playing`,
+      transformResponse: (response: any): MediaItem[] => {
+        return response.results.map((item: any) => ({
+          ...item,
+          media_type: "movie",
+        }));
+      },
+    }),
     /*  */
     getPopular: builder.query<any, { type: MediaType }>({
       query: ({ type }) => `tmdb?endpoint=popular&type=${type}`,
@@ -55,5 +64,9 @@ export const tmdbApi = createApi({
   }),
 });
 
-export const { useGetPopularQuery, useGetTrendingQuery, useSearchByTypeQuery } =
-  tmdbApi;
+export const {
+  useGetNowPlayingQuery,
+  useGetPopularQuery,
+  useGetTrendingQuery,
+  useSearchByTypeQuery,
+} = tmdbApi;

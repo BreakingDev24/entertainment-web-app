@@ -1,5 +1,5 @@
+import type { MediaItem } from "@/components/ui/Card/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { MediaItem } from "../../components/ui/Card";
 
 type MediaType = "movie" | "tv";
 type SearchType = MediaType | "multi";

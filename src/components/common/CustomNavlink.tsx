@@ -1,5 +1,5 @@
 import { NavLink, type NavLinkProps } from "react-router-dom";
-import cn from "../../utils/cn";
+import cn from "@/utils/cn";
 interface CustomNavLinkProps extends NavLinkProps {}
 
 export default function CustomNavLink({

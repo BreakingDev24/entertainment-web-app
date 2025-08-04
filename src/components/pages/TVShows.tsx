@@ -1,5 +1,5 @@
-import { useGetPopularQuery } from "../../features/tmdb/tmdbApi";
-import List from "../common/List";
+import { useGetPopularQuery } from "@/features/tmdb/tmdbApi";
+import List from "@/components/common/List";
 
 export default function TVShows() {
   const { data, isFetching } = useGetPopularQuery({ type: "tv" });

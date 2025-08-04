@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../app/store";
-import { type MovieItem, type TVItem } from "../../components/ui/Card";
+import type { MovieItem, TVItem } from "@/components/ui/Card/types";
 
 interface BookmarkState {
   movie: MovieItem[];

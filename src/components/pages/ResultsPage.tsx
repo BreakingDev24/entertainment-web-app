@@ -1,6 +1,6 @@
 import { useParams, useSearchParams } from "react-router-dom";
-import { useSearchByTypeQuery } from "../../features/tmdb/tmdbApi";
-import List from "../common/List";
+import { useSearchByTypeQuery } from "@/features/tmdb/tmdbApi";
+import List from "@/components/common/List";
 
 export default function ResultPage() {
   const { section } = useParams();

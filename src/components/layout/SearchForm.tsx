@@ -1,5 +1,5 @@
 import { useState } from "react";
-import IconSearch from "../../assets/icon-search.svg?react";
+import IconSearch from "@/assets/icon-search.svg?react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function SearchForm() {

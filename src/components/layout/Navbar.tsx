@@ -1,11 +1,11 @@
-import cn from "../../utils/cn";
-import Logo from "../../assets/logo.svg?react";
-import IconHome from "../../assets/icon-nav-home.svg?react";
-import IconMovies from "../../assets/icon-nav-movies.svg?react";
-import IconTvSeries from "../../assets/icon-nav-tv-series.svg?react";
-import IconBookmark from "../../assets/icon-nav-bookmark.svg?react";
-import ImageAvatar from "../../assets/image-avatar.png";
-import CustomNavLink from "../common/CustomNavlink";
+import cn from "@/utils/cn";
+import Logo from "@/assets/logo.svg?react";
+import IconHome from "@/assets/icon-nav-home.svg?react";
+import IconMovies from "@/assets/icon-nav-movies.svg?react";
+import IconTvSeries from "@/assets/icon-nav-tv-series.svg?react";
+import IconBookmark from "@/assets/icon-nav-bookmark.svg?react";
+import ImageAvatar from "@/assets/image-avatar.png";
+import CustomNavLink from "@/components/common/CustomNavlink";
 
 interface NavProps {
   className?: string;

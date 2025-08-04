@@ -13,6 +13,7 @@ export type MovieItem = {
   title: string;
   release_date: string;
   poster_path: string;
+  backdrop_path: string;
 };
 
 export type TVItem = {
@@ -21,6 +22,7 @@ export type TVItem = {
   name: string;
   first_air_date: string;
   poster_path: string;
+  backdrop_path: string;
 };
 
 export type MediaItem = MovieItem | TVItem;
@@ -28,9 +30,10 @@ export type MediaItem = MovieItem | TVItem;
 interface CardProps {
   item: MediaItem;
   className?: string;
+  variant?: "primary" | "secondary";
 }
 
-export default function Card({ item, className }: CardProps) {
+export default function Card({ item, className, variant }: CardProps) {
   const location = useLocation();
   const dispatch = useAppDispatch();
   const imgUrl = "https://image.tmdb.org/t/p/";
@@ -49,6 +52,8 @@ export default function Card({ item, className }: CardProps) {
   const bookmarks = useAppSelector((state) =>
     item.media_type === "movie" ? state.bookmark.movie : state.bookmark.tv,
   );
+  const imgType =
+    variant === "secondary" ? item.backdrop_path : item.poster_path;
   const isBookmarked = bookmarks.some((el) => el.id === item.id);
   const handleToggleBookmark = () => {
     if (isBookmarked)
@@ -65,18 +70,20 @@ export default function Card({ item, className }: CardProps) {
       )}
     >
       <img
-        src={`${imgUrl}w342${item.poster_path}`}
+        src={`${imgUrl}w342${imgType}`}
         alt={`${mediaTitle} poster`}
         className="w-full"
       />
-      <div className="text-preset6-mobile flex w-full items-center justify-between">
-        <span>{year}</span>
-        <span className="ml-auto flex items-center gap-1.5">
-          {mediaTypeIcon}
-          {mediaType}
-        </span>
+      <div className="grid w-full gap-1.5 text-center">
+        <div className="text-preset6-mobile flex w-full items-center justify-between">
+          <span>{year}</span>
+          <span className="ml-auto flex items-center gap-1.5">
+            {mediaTypeIcon}
+            {mediaType}
+          </span>
+        </div>
+        <p className="text-preset4-mobile">{mediaTitle}</p>
       </div>
-      <p className="text-preset4-mobile">{mediaTitle}</p>
       <button
         onClick={handleToggleBookmark}
         className="bg-darkBlue absolute top-2 right-2 rounded-full p-2 opacity-50"

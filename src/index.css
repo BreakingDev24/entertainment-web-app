@@ -2,12 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 @theme static {
-  --color-white: var(--color-white);
-  --color-black: var(--color-black);
+  --color-white: #ffffff;
+  --color-black: #000000;
   --color-red: var(--color-red-500);
-  --color-darkBlue: var(--color-blue-950);
-  --color-mediumBlue: var(--color-blue-900);
-  --color-lightBlue: var(--color-blue-500);
+  --color-darkBlue: #10141e;
+  --color-mediumBlue: #161d2f;
+  --color-lightBlue: #5a698f;
 
   /* text */
   --font-primary: "Outfit", sans-serif;

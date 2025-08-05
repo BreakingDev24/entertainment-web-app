@@ -5,7 +5,7 @@ import IconMovies from "@/assets/icon-nav-movies.svg?react";
 import IconTvSeries from "@/assets/icon-nav-tv-series.svg?react";
 import IconBookmark from "@/assets/icon-nav-bookmark.svg?react";
 import ImageAvatar from "@/assets/image-avatar.png";
-import CustomNavLink from "@/components/common/CustomNavlink";
+import CustomNavLink from "@/components/ui/CustomNavlink";
 
 interface NavProps {
   className?: string;

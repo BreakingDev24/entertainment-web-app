@@ -7,7 +7,7 @@ interface MainSectionProps {
 
 export default function MainSection({ className }: MainSectionProps) {
   return (
-    <main className={cn(className)}>
+    <main className={cn("grid gap-1.5", className)}>
       <AllRoutes />
     </main>
   );

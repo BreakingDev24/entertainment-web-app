@@ -2,6 +2,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 import { useSearchByTypeQuery } from "@/features/tmdb/tmdbApi";
 import List from "@/components/common/List";
 import Section from "../common/Section";
+import SectionTitle from "../common/SectionTitle";
 
 export default function ResultPage() {
   const { section } = useParams();
@@ -19,7 +20,8 @@ export default function ResultPage() {
 
   return (
     <Section>
-      <h2>Results for: {query}</h2>
+      <SectionTitle title={`Results for ${query}`} />
+
       {isFetching ? <p>Loading</p> : <List data={data} />}
     </Section>
   );

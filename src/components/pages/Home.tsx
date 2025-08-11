@@ -5,6 +5,7 @@ import {
 } from "../../features/tmdb/tmdbApi";
 import List from "../common/List";
 import Section from "../common/Section";
+import SectionTitle from "../common/SectionTitle";
 
 export default function Home() {
   const [searchParams] = useSearchParams();
@@ -17,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Section>
-        <h2>Now Playing Movies</h2>
+        <SectionTitle title="Now Playing Movies" />
         <div className="relative -mx-6 overflow-x-auto pl-4">
           {isFetchingNowPlaying ? (
             <p>Loading</p>
@@ -28,7 +29,8 @@ export default function Home() {
       </Section>
 
       <Section>
-        <h2>Trending</h2>
+        <SectionTitle title="Trending" />
+
         {isFetchingTrending ? (
           <p>Loading</p>
         ) : (

@@ -1,6 +1,7 @@
 import { useParams, useSearchParams } from "react-router-dom";
 import { useSearchByTypeQuery } from "@/features/tmdb/tmdbApi";
 import List from "@/components/common/List";
+import Section from "../common/Section";
 
 export default function ResultPage() {
   const { section } = useParams();
@@ -17,9 +18,9 @@ export default function ResultPage() {
   );
 
   return (
-    <div className="text-white">
+    <Section>
       <h2>Results for: {query}</h2>
       {isFetching ? <p>Loading</p> : <List data={data} />}
-    </div>
+    </Section>
   );
 }

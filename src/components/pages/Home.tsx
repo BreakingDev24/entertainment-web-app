@@ -4,6 +4,7 @@ import {
   useGetTrendingQuery,
 } from "../../features/tmdb/tmdbApi";
 import List from "../common/List";
+import Section from "../common/Section";
 
 export default function Home() {
   const [searchParams] = useSearchParams();
@@ -14,26 +15,26 @@ export default function Home() {
     useGetNowPlayingQuery();
   console.log(nowPlayingData);
   return (
-    <div className="overflow-hidden p-4 text-white">
-      <div>
+    <>
+      <Section>
         <h2>Now Playing Movies</h2>
-        <div className="overflow-x-auto">
+        <div className="relative -mx-6 overflow-x-auto pl-4">
           {isFetchingNowPlaying ? (
             <p>Loading</p>
           ) : (
             <List data={nowPlayingData} variant="secondary" />
           )}
         </div>
-      </div>
+      </Section>
 
-      <div>
+      <Section>
         <h2>Trending</h2>
         {isFetchingTrending ? (
           <p>Loading</p>
         ) : (
           <List data={trendingData.results} />
         )}
-      </div>
-    </div>
+      </Section>
+    </>
   );
 }

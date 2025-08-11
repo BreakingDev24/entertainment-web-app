@@ -1,8 +1,13 @@
 import { useState } from "react";
 import IconSearch from "@/assets/icon-search.svg?react";
 import { useLocation, useNavigate } from "react-router-dom";
+import cn from "@/utils/cn";
 
-export default function SearchForm() {
+interface FormProps {
+  className?: string;
+}
+
+export default function SearchForm({ className }: FormProps) {
   const [input, setInput] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
@@ -22,17 +27,19 @@ export default function SearchForm() {
     return "Search for movies or TV series";
   };
   return (
-    <form action="" onSubmit={handleSubmit} className="flex">
-      <button>
-        <IconSearch />
-      </button>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder={getPlaceholder()}
-        className="text-preset2-mobile flex-1 text-white placeholder-gray-300"
-      />
-    </form>
+    <div className={cn(className)}>
+      <form action="" onSubmit={handleSubmit} className="flex">
+        <button>
+          <IconSearch />
+        </button>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder={getPlaceholder()}
+          className="text-preset2-mobile flex-1 text-white placeholder-gray-300"
+        />
+      </form>
+    </div>
   );
 }

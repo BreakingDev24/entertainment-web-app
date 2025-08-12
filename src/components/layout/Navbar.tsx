@@ -14,14 +14,14 @@ export default function Navbar({ className }: NavProps) {
   return (
     <div
       className={cn(
-        "bg-mediumBlue flex items-center justify-between p-4",
+        "bg-mediumBlue flex items-center justify-between p-4 lg:h-full lg:flex-col",
         className,
       )}
     >
       <div>
         <Logo />
       </div>
-      <nav className="r flex gap-6">
+      <nav className="flex gap-6 lg:flex-col">
         <CustomNavLink to="/" className="text-white">
           <IconHome />
         </CustomNavLink>

@@ -14,12 +14,12 @@ interface ListProps {
 const listStyle = tv({
   slots: {
     root: "",
-    listElement: "grid w-full justify-items-center",
+    listElement: "grid w-full max-w-[300px] justify-items-center",
   },
   variants: {
     variant: {
       primary: {
-        root: "grid grid-cols-2 justify-center justify-items-center gap-4 md:grid-cols-3",
+        root: "grid grid-cols-2 place-items-center gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8",
       },
       secondary: {
         root: "grid auto-cols-[240px] grid-flow-col gap-5",

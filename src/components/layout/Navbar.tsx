@@ -14,7 +14,7 @@ export default function Navbar({ className }: NavProps) {
   return (
     <div
       className={cn(
-        "bg-mediumBlue flex items-center justify-between p-4 lg:h-full lg:flex-col",
+        "bg-mediumBlue flex items-center justify-between p-4 lg:h-full lg:flex-col lg:justify-start lg:gap-8",
         className,
       )}
     >
@@ -36,7 +36,7 @@ export default function Navbar({ className }: NavProps) {
         </CustomNavLink>
       </nav>
 
-      <div>
+      <div className="mt-auto">
         <img src={ImageAvatar} alt="avatar" className="w-6" />
       </div>
     </div>

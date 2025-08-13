@@ -22,7 +22,8 @@ const listStyle = tv({
         root: "grid grid-cols-2 place-items-center gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8",
       },
       secondary: {
-        root: "grid auto-cols-[240px] grid-flow-col gap-5",
+        root: "grid auto-cols-[240px] grid-flow-col gap-5 after:content-['']",
+        listElement: "snap-center",
       },
     },
   },

@@ -77,3 +77,23 @@
   --text-preset6-mobile--letter-spacing: 0px;
   --text-preset6-mobile--font-weight: var(--font-weight-light);
 }
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background: var(--color-mediumBlue);
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: var(--color-darkBlue);
+    border: 2px solid var(--color-mediumBlue);
+  }
+
+  .scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-darkBlue) var(--color-mediumBlue);
+  }
+}

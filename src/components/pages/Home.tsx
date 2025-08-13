@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <Section>
         <SectionTitle title="Now Playing Movies" />
-        <div className="relative -mx-6 overflow-x-auto pl-4">
+        <div className="scrollbar relative -mx-6 snap-x snap-mandatory overflow-x-auto pb-1.5 pl-4">
           {isFetchingNowPlaying ? (
             <p>Loading</p>
           ) : (

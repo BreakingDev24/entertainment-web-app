@@ -46,7 +46,7 @@ export default function Card({
             {mediaType}
           </span>
         </div>
-        <p className={styles.title()}>{mediaTitle}</p>
+        <h3 className={styles.title()}>{mediaTitle}</h3>
       </div>
       <button onClick={handleToggleBookmark} className={styles.bookmark()}>
         <img

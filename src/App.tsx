@@ -5,6 +5,7 @@ import Navbar from "./components/layout/Navbar";
 import SearchForm from "./components/layout/SearchForm";
 
 import MainSection from "./components/layout/MainSection";
+import Footer from "./components/layout/Footer";
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
             <MainSection className="lg:row-start-2" />
           </div>
         </div>
+        <Footer />
       </BrowserRouter>
     </>
   );

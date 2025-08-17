@@ -1,5 +1,5 @@
 import cn from "@/utils/cn";
-import AllRoutes from "../pages";
+import AllRoutes from "../../pages";
 
 interface MainSectionProps {
   className?: string;

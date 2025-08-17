@@ -46,13 +46,23 @@ export default function Card({
             {mediaType}
           </span>
         </div>
-        <h3 className={styles.title()}>{mediaTitle}</h3>
+        <h3
+          title={mediaTitle}
+          aria-label={mediaTitle}
+          className={styles.title()}
+        >
+          {mediaTitle}
+        </h3>
       </div>
-      <button onClick={handleToggleBookmark} className={styles.bookmark()}>
+      <button
+        aria-pressed={isBookmarked}
+        onClick={handleToggleBookmark}
+        className={styles.bookmark()}
+      >
         <img
           className="w-3"
           src={isBookmarked ? BookmarkFull : BookmarkEmpty}
-          alt=""
+          alt={isBookmarked ? "Bookmarked" : "Not bookmarked"}
         />
       </button>
     </div>

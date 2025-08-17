@@ -1,4 +1,3 @@
-import { useSearchParams } from "react-router-dom";
 import {
   useGetNowPlayingQuery,
   useGetTrendingQuery,
@@ -8,13 +7,10 @@ import Section from "../common/Section";
 import SectionTitle from "../common/SectionTitle";
 
 export default function Home() {
-  const [searchParams] = useSearchParams();
-  const query = searchParams.get("query");
   const { data: trendingData, isFetching: isFetchingTrending } =
     useGetTrendingQuery();
   const { data: nowPlayingData, isFetching: isFetchingNowPlaying } =
     useGetNowPlayingQuery();
-  console.log(nowPlayingData);
   return (
     <>
       <Section>

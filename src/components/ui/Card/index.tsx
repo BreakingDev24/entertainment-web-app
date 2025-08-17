@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 import IconTypeMovie from "@/assets/icon-category-movie.svg?react";
 import IconTypeTV from "@/assets/icon-category-tv.svg?react";
 import cn from "@/utils/cn";
